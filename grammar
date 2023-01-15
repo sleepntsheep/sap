@@ -7,12 +7,11 @@ expression     -> declaration
                     | function
                     | "print" expression;
 
-if             -> "if" expression expression
-                    ("else" expression) ? 
+if             -> "if" expression expression ("else" expression) ? 
 
 while          -> "while" expression expression
 
-block          -> "{" expression * "}" ;
+block          -> "{" expression* "}" ;
 
 function       -> "subroutine" IDENTIFIER "(" IDENTIFIER* ")" expression
 
@@ -26,7 +25,7 @@ logic_or       -> logic_and ( "or" logic_and )* ;
 
 logic_and      -> equality ( "and" equality )* ;
 
-equality       -> comparison ( ( "~" | "=" | " ) comparison )* ;
+equality       -> comparison ( ( "~" | "=" ) comparison )* ;
 
 comparison     -> term ( ( ">" | ">=" | "<" | "<=" ) term )* ;
 
@@ -34,14 +33,14 @@ term           -> factor ( ( "-" | "+" | ".." ) factor )* ;
 
 factor         -> exponent ( ( "/" | "*" ) exponent )* ;
 
-exponent       -> unary  ( "**" exponent )* ;
+exponent       -> unary  ( "^" exponent )? ;
 
 unary          -> ( "!" | "-" ) unary
                    | call ;
 
 call           -> primary ( "(" arguments? ")" )*;
 
-arguments      -> expression ("," expression )* ;
+arguments      -> expression*;
 
 primary        -> NUMBER | STRING | IDENTIFIER | "true" | "false" | "nil"
                    | "(" expression ")" ;

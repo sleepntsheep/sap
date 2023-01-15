@@ -2,8 +2,8 @@
 
 set -xe
 
-clang -o sap src/main.c \
-    src/sstring.c src/sobject.c src/lexer.c src/parser.c src/ast.c src/token.c src/env.c src/eval.c src/error.c \
-    -g -lm\
+clang -o sap src/*.c \
+    -g -O3 \
+    -lm \
     -std=c11 -Wall -Wextra -Wimplicit-fallthrough -pedantic
 

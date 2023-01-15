@@ -13,4 +13,3 @@ let print_day := subroutine(day msg) {
 
 range(1 5 1 print_day "hello")
 
-

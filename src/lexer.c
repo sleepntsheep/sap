@@ -168,6 +168,7 @@ static void lexer_lex(Lexer *l) {
                 l->col = 0;
                 advance(l);
                 break;
+            C1('^', T_POWER)
             C1('(', T_LPAREN)
             C1(')', T_RPAREN)
             C1('{', T_LBRACE)

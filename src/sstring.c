@@ -95,3 +95,4 @@ void sstring_free(SString string) {
     free(sstring_getinfo(string));
 }
 
+

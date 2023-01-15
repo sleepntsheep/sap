@@ -1,0 +1,9 @@
+
+let power := subroutine(b e) {
+    if e = 0 1
+    else b * power(b e - 1)
+}
+
+print power(3 5)
+print 3 ^ 5
+
