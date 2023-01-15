@@ -1,0 +1,57 @@
+
+# Sap
+
+Interpreted programming language (WIP)
+
+In C11, no dependencies.
+
+Reference: [craftinginterpreters](https://www.craftinginterpreters.com/)
+
+See example/prime.sap or example/hanoi.sap
+
+# Building
+
+dep: POSIX compliant shell and /bin/cc
+    ./build.sh
+    sudo cp sap /usr/local/bin/sap
+
+# TODO
+
+- [ ] standard library
+- [ ] for loop
+- [ ] break
+- [ ] continue
+- [ ] return  (currently last expression in block expression is used for return value)
+- [x] function
+- [ ] string escaping, raw string
+- [x] if-else
+- [x] while loop
+- [x] variable scoping
+
+# Draft
+
+    subroutine return_seven() {
+        7 # last expression in block is return value
+    }
+
+    let a := {
+        let b := return_seven()
+        b ^ 8
+    }
+
+    # RuntimeError : undefined variable
+    print b 
+
+    # conditions
+    if cond expr
+    else expr
+
+    # ofc, condition can be block expression as well
+
+    # since if-else does return value from block stmt, no ternary operator is needed
+
+    # short circuiting work
+
+    print nil or get_random_string()
+
+
