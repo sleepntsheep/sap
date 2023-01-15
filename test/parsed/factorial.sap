@@ -1,0 +1,34 @@
+A_DECLARATION
+ T_IDENTIFIER fact (0 1 0 5)
+ A_FUNCTION
+  T_IDENTIFIER n (0 10 0 11)
+  A_BLOCK
+   A_IF
+    A_BINARY
+     A_VARIABLE
+      T_IDENTIFIER n (1 7 1 8)
+     A_LITERAL
+      T_NUMBER 1 (1 12 1 13)
+    A_BLOCK
+     A_LITERAL
+      T_NUMBER 1 (2 9 2 10)
+    A_BLOCK
+     A_BINARY
+      A_VARIABLE
+       T_IDENTIFIER n (4 9 4 10)
+      A_CALL
+       A_VARIABLE
+        T_IDENTIFIER fact (4 13 4 17)
+       A_BINARY
+        A_VARIABLE
+         T_IDENTIFIER n (4 18 4 19)
+        A_LITERAL
+         T_NUMBER 1 (4 22 4 23)
+       T_RPAREN  (4 23 4 23)
+A_PRINT
+ A_CALL
+  A_VARIABLE
+   T_IDENTIFIER fact (8 2 8 6)
+  A_LITERAL
+   T_NUMBER 20 (8 7 8 9)
+  T_RPAREN  (8 9 8 9)

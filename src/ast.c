@@ -26,6 +26,10 @@ void astlist_push(ASTList *a, AST *x) {
     a->data[a->length++] = x;
 }
 
+const char *asttype_str(ASTType type) {
+    return __ast_type_str[type];
+}
+
 void astlist_free(ASTList *a) {
     free(a->data);
     free(a);

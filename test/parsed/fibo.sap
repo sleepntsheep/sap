@@ -1,0 +1,39 @@
+A_DECLARATION
+ T_IDENTIFIER fibo (1 2 1 6)
+ A_FUNCTION
+  T_IDENTIFIER n (1 11 1 12)
+  A_BLOCK
+   A_IF
+    A_BINARY
+     A_VARIABLE
+      T_IDENTIFIER n (2 7 2 8)
+     A_LITERAL
+      T_NUMBER 1 (2 12 2 13)
+    A_VARIABLE
+     T_IDENTIFIER n (2 15 2 16)
+    A_BINARY
+     A_CALL
+      A_VARIABLE
+       T_IDENTIFIER fibo (3 6 3 10)
+      A_BINARY
+       A_VARIABLE
+        T_IDENTIFIER n (3 11 3 12)
+       A_LITERAL
+        T_NUMBER 1 (3 15 3 16)
+      T_RPAREN  (3 16 3 16)
+     A_CALL
+      A_VARIABLE
+       T_IDENTIFIER fibo (3 20 3 24)
+      A_BINARY
+       A_VARIABLE
+        T_IDENTIFIER n (3 25 3 26)
+       A_LITERAL
+        T_NUMBER 2 (3 29 3 30)
+      T_RPAREN  (3 30 3 30)
+A_PRINT
+ A_CALL
+  A_VARIABLE
+   T_IDENTIFIER fibo (6 2 6 6)
+  A_LITERAL
+   T_NUMBER 35 (6 7 6 9)
+  T_RPAREN  (6 9 6 9)

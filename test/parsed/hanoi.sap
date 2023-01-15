@@ -1,0 +1,120 @@
+A_DECLARATION
+ T_IDENTIFIER hanoi (1 2 1 7)
+ A_FUNCTION
+  T_IDENTIFIER n (1 13 1 14)
+  T_IDENTIFIER from (1 15 1 19)
+  T_IDENTIFIER to (1 20 1 22)
+  T_IDENTIFIER buf (1 23 1 26)
+  A_BLOCK
+   A_IF
+    A_BINARY
+     A_VARIABLE
+      T_IDENTIFIER n (2 6 2 7)
+     A_LITERAL
+      T_NUMBER 1 (2 10 2 11)
+    A_BLOCK
+     A_CALL
+      A_VARIABLE
+       T_IDENTIFIER move (3 9 3 13)
+      A_LITERAL
+       T_NUMBER 1 (3 14 3 15)
+      A_VARIABLE
+       T_IDENTIFIER from (3 16 3 20)
+      A_VARIABLE
+       T_IDENTIFIER to (3 21 3 23)
+      T_RPAREN  (3 23 3 23)
+    A_BLOCK
+     A_CALL
+      A_VARIABLE
+       T_IDENTIFIER hanoi (5 9 5 14)
+      A_BINARY
+       A_VARIABLE
+        T_IDENTIFIER n (5 15 5 16)
+       A_LITERAL
+        T_NUMBER 1 (5 19 5 20)
+      A_VARIABLE
+       T_IDENTIFIER from (5 21 5 25)
+      A_VARIABLE
+       T_IDENTIFIER buf (5 26 5 29)
+      A_VARIABLE
+       T_IDENTIFIER to (5 30 5 32)
+      T_RPAREN  (5 32 5 32)
+     A_CALL
+      A_VARIABLE
+       T_IDENTIFIER move (6 9 6 13)
+      A_VARIABLE
+       T_IDENTIFIER n (6 14 6 15)
+      A_VARIABLE
+       T_IDENTIFIER from (6 16 6 20)
+      A_VARIABLE
+       T_IDENTIFIER to (6 21 6 23)
+      T_RPAREN  (6 23 6 23)
+     A_CALL
+      A_VARIABLE
+       T_IDENTIFIER hanoi (7 9 7 14)
+      A_BINARY
+       A_VARIABLE
+        T_IDENTIFIER n (7 15 7 16)
+       A_LITERAL
+        T_NUMBER 1 (7 19 7 20)
+      A_VARIABLE
+       T_IDENTIFIER buf (7 21 7 24)
+      A_VARIABLE
+       T_IDENTIFIER to (7 25 7 27)
+      A_VARIABLE
+       T_IDENTIFIER from (7 28 7 32)
+      T_RPAREN  (7 32 7 32)
+A_DECLARATION
+ T_IDENTIFIER move (11 2 11 6)
+ A_FUNCTION
+  T_IDENTIFIER disc (11 12 11 16)
+  T_IDENTIFIER from (11 17 11 21)
+  T_IDENTIFIER to (11 22 11 24)
+  A_BLOCK
+   A_PRINT
+    A_BINARY
+     A_BINARY
+      A_BINARY
+       A_BINARY
+        A_BINARY
+         A_LITERAL
+          T_STRING Moved disc  (12 7 12 18)
+         A_VARIABLE
+          T_IDENTIFIER disc (12 21 12 25)
+        A_LITERAL
+         T_STRING  from peg  (12 28 12 38)
+       A_VARIABLE
+        T_IDENTIFIER from (12 41 12 45)
+      A_LITERAL
+       T_STRING  to peg  (12 48 12 56)
+     A_VARIABLE
+      T_IDENTIFIER to (12 59 12 61)
+A_CALL
+ A_VARIABLE
+  T_IDENTIFIER hanoi (15 1 15 6)
+ A_LITERAL
+  T_NUMBER 9 (15 7 15 8)
+ A_LITERAL
+  T_NUMBER 1 (15 9 15 10)
+ A_LITERAL
+  T_NUMBER 2 (15 11 15 12)
+ A_LITERAL
+  T_NUMBER 3 (15 13 15 14)
+ T_RPAREN  (15 14 15 14)
+A_PRINT
+ A_LITERAL
+  T_STRING 
+
+ (16 3 16 5)
+A_CALL
+ A_VARIABLE
+  T_IDENTIFIER hanoi (17 1 17 6)
+ A_LITERAL
+  T_NUMBER 3 (17 7 17 8)
+ A_LITERAL
+  T_NUMBER 1 (17 9 17 10)
+ A_LITERAL
+  T_NUMBER 2 (17 11 17 12)
+ A_LITERAL
+  T_NUMBER 3 (17 13 17 14)
+ T_RPAREN  (17 14 17 14)

@@ -3,22 +3,27 @@
 #define AST_H
 #include "token.h"
 
-typedef enum {
-    A_OR,
-    A_AND,
-    A_UNARY,
-    A_BINARY,
-    A_DECLARATION,
-    A_ASSIGNMENT,
-    A_LITERAL,
-    A_VARIABLE,
-    A_IF,
-    A_WHILE,
-    A_BLOCK,
-    A_FUNCTION,
-    A_CALL,
-    A_PRINT,
-} ASTType;
+#define AST_TYPE_LIST \
+    X(A_OR) \
+    X(A_AND) \
+    X(A_UNARY) \
+    X(A_BINARY) \
+    X(A_DECLARATION) \
+    X(A_ASSIGNMENT) \
+    X(A_LITERAL) \
+    X(A_VARIABLE) \
+    X(A_IF) \
+    X(A_WHILE) \
+    X(A_BLOCK) \
+    X(A_FUNCTION) \
+    X(A_CALL) \
+    X(A_PRINT) \
+
+#define X(a) a,
+typedef enum { AST_TYPE_LIST } ASTType;
+#undef X
+#define X(a) #a,
+static const char *__ast_type_str[] = { AST_TYPE_LIST };
 
 typedef struct AST AST;
 
@@ -95,6 +100,7 @@ struct AST {
 };
 
 AST *ast_new(AST ast);
+const char *asttype_str(ASTType type);
 
 #define ast_if(cond,ift,iff) ast_new((AST){ A_IF, .ifelse = {cond,ift,iff}})
 #define ast_block(exprlist) ast_new((AST){ A_BLOCK, .block = {exprlist}} )

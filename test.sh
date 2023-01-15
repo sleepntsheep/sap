@@ -28,15 +28,21 @@ printf '\nRunning test/lexer\n'
 
 for f in example/*.sap
 do
+    printf "\t$f"
     ./test/lexer "$f" >| test/lexed/"$(basename $f)"
 done
 
+gcc -o test/parser test/parser.c src/parser.c src/lexer.c \
+    src/token.c src/ast.c src/sobject.c src/sstring.c src/error.c -g
+printf '\nRunning test/parser\n'
+
+for f in example/*.sap
+do
+    printf "\t$f"
+    ./test/parser "$f" >| test/parsed/"$(basename $f)"
+done
 
 exit
-
-gcc -o test/parser test/parser.c src/parser.c src/token.c src/ast.c src/sobject.c -g
-printf '\nRunning test/parser\n'
-./test/parser
 
 gcc -o test/eval test/eval.c src/parser.c src/token.c src/ast.c src/sobject.c -g
 printf '\nRunning test/eval\n'
