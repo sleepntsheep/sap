@@ -1,0 +1,21 @@
+
+let hanoi := subroutine (n from to buf) {
+    if n = 1 {
+        move(1 from to)
+    } else {
+        hanoi(n - 1 from buf to)
+        move(n from to)
+        hanoi(n - 1 buf to from)
+    }
+}
+
+let move := subroutine (disc from to) {
+    print "Moved disc "..disc.." from peg "..from.." to peg "..to
+}
+
+hanoi(9 1 2 3)
+print "
+
+"
+hanoi(3 1 2 3)
+

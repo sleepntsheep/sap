@@ -1,0 +1,23 @@
+
+let is_prime := subroutine (num) {
+    let prime := true
+    let i := 2
+    while i * i <= num and prime {
+        if num % i = 0 {
+            prime := false
+        }
+        i := i + 1
+    }
+    prime
+}
+
+let counter := 1
+
+while counter <= 40 { 
+    if is_prime(counter) print counter.." is prime"
+    else print counter.." is not prime"
+
+    counter := counter + 1
+}
+
+

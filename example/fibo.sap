@@ -1,0 +1,8 @@
+
+let fibo := subroutine(n) {
+    if (n <= 1) n
+    else fibo(n - 1) + fibo(n - 2)
+}
+
+print fibo(35)
+

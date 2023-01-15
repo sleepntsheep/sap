@@ -1,0 +1,16 @@
+
+let range := subroutine(start end inc func data) {
+    let i := start
+    while i <= end {
+        func(i data)
+        i := i + inc
+    }
+}
+
+let print_day := subroutine(day msg) {
+    print("Day "..day..": "..msg)
+}
+
+range(1 5 1 print_day "hello")
+
+

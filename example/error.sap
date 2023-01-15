@@ -1,0 +1,5 @@
+
+let a := subroutine no_arg_list {}
+
+a()
+
