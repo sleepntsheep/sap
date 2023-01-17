@@ -6,5 +6,5 @@ let fact := subroutine(n) {
     }
 }
 
-print fact(20)
+print(fact(20))
 

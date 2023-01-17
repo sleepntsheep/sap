@@ -2,9 +2,9 @@ A_DECLARATION
  T_IDENTIFIER hanoi (1 2 1 7)
  A_FUNCTION
   T_IDENTIFIER n (1 13 1 14)
-  T_IDENTIFIER from (1 15 1 19)
-  T_IDENTIFIER to (1 20 1 22)
-  T_IDENTIFIER buf (1 23 1 26)
+  T_IDENTIFIER from (1 16 1 20)
+  T_IDENTIFIER to (1 22 1 24)
+  T_IDENTIFIER buf (1 26 1 29)
   A_BLOCK
    A_IF
     A_BINARY
@@ -19,10 +19,10 @@ A_DECLARATION
       A_LITERAL
        T_NUMBER 1 (3 14 3 15)
       A_VARIABLE
-       T_IDENTIFIER from (3 16 3 20)
+       T_IDENTIFIER from (3 17 3 21)
       A_VARIABLE
-       T_IDENTIFIER to (3 21 3 23)
-      T_RPAREN  (3 23 3 23)
+       T_IDENTIFIER to (3 23 3 25)
+      T_RPAREN  (3 25 3 25)
     A_BLOCK
      A_CALL
       A_VARIABLE
@@ -33,22 +33,22 @@ A_DECLARATION
        A_LITERAL
         T_NUMBER 1 (5 19 5 20)
       A_VARIABLE
-       T_IDENTIFIER from (5 21 5 25)
+       T_IDENTIFIER from (5 22 5 26)
       A_VARIABLE
-       T_IDENTIFIER buf (5 26 5 29)
+       T_IDENTIFIER buf (5 28 5 31)
       A_VARIABLE
-       T_IDENTIFIER to (5 30 5 32)
-      T_RPAREN  (5 32 5 32)
+       T_IDENTIFIER to (5 33 5 35)
+      T_RPAREN  (5 35 5 35)
      A_CALL
       A_VARIABLE
        T_IDENTIFIER move (6 9 6 13)
       A_VARIABLE
        T_IDENTIFIER n (6 14 6 15)
       A_VARIABLE
-       T_IDENTIFIER from (6 16 6 20)
+       T_IDENTIFIER from (6 17 6 21)
       A_VARIABLE
-       T_IDENTIFIER to (6 21 6 23)
-      T_RPAREN  (6 23 6 23)
+       T_IDENTIFIER to (6 23 6 25)
+      T_RPAREN  (6 25 6 25)
      A_CALL
       A_VARIABLE
        T_IDENTIFIER hanoi (7 9 7 14)
@@ -58,63 +58,69 @@ A_DECLARATION
        A_LITERAL
         T_NUMBER 1 (7 19 7 20)
       A_VARIABLE
-       T_IDENTIFIER buf (7 21 7 24)
+       T_IDENTIFIER buf (7 22 7 25)
       A_VARIABLE
-       T_IDENTIFIER to (7 25 7 27)
+       T_IDENTIFIER to (7 27 7 29)
       A_VARIABLE
-       T_IDENTIFIER from (7 28 7 32)
-      T_RPAREN  (7 32 7 32)
+       T_IDENTIFIER from (7 31 7 35)
+      T_RPAREN  (7 35 7 35)
 A_DECLARATION
- T_IDENTIFIER move (11 2 11 6)
+ T_IDENTIFIER move (10 2 10 6)
  A_FUNCTION
-  T_IDENTIFIER disc (11 12 11 16)
-  T_IDENTIFIER from (11 17 11 21)
-  T_IDENTIFIER to (11 22 11 24)
+  T_IDENTIFIER disc (10 12 10 16)
+  T_IDENTIFIER from (10 18 10 22)
+  T_IDENTIFIER to (10 24 10 26)
   A_BLOCK
-   A_PRINT
+   A_CALL
+    A_VARIABLE
+     T_IDENTIFIER print (11 5 11 10)
     A_BINARY
      A_BINARY
       A_BINARY
        A_BINARY
         A_BINARY
          A_LITERAL
-          T_STRING Moved disc  (12 7 12 18)
+          T_STRING Moved disc  (11 12 11 23)
          A_VARIABLE
-          T_IDENTIFIER disc (12 21 12 25)
+          T_IDENTIFIER disc (11 26 11 30)
         A_LITERAL
-         T_STRING  from peg  (12 28 12 38)
+         T_STRING  from peg  (11 33 11 43)
        A_VARIABLE
-        T_IDENTIFIER from (12 41 12 45)
+        T_IDENTIFIER from (11 46 11 50)
       A_LITERAL
-       T_STRING  to peg  (12 48 12 56)
+       T_STRING  to peg  (11 53 11 61)
      A_VARIABLE
-      T_IDENTIFIER to (12 59 12 61)
+      T_IDENTIFIER to (11 64 11 66)
+    T_RPAREN  (11 66 11 66)
 A_CALL
  A_VARIABLE
-  T_IDENTIFIER hanoi (15 1 15 6)
+  T_IDENTIFIER hanoi (14 1 14 6)
  A_LITERAL
-  T_NUMBER 9 (15 7 15 8)
+  T_NUMBER 9 (14 7 14 8)
  A_LITERAL
-  T_NUMBER 1 (15 9 15 10)
+  T_NUMBER 1 (14 10 14 11)
  A_LITERAL
-  T_NUMBER 2 (15 11 15 12)
+  T_NUMBER 2 (14 13 14 14)
  A_LITERAL
-  T_NUMBER 3 (15 13 15 14)
- T_RPAREN  (15 14 15 14)
-A_PRINT
+  T_NUMBER 3 (14 16 14 17)
+ T_RPAREN  (14 17 14 17)
+A_CALL
+ A_VARIABLE
+  T_IDENTIFIER print (15 1 15 6)
  A_LITERAL
   T_STRING 
 
- (16 3 16 5)
+ (15 8 15 10)
+ T_RPAREN  (15 11 15 11)
 A_CALL
  A_VARIABLE
-  T_IDENTIFIER hanoi (17 1 17 6)
+  T_IDENTIFIER hanoi (16 1 16 6)
  A_LITERAL
-  T_NUMBER 3 (17 7 17 8)
+  T_NUMBER 3 (16 7 16 8)
  A_LITERAL
-  T_NUMBER 1 (17 9 17 10)
+  T_NUMBER 1 (16 10 16 11)
  A_LITERAL
-  T_NUMBER 2 (17 11 17 12)
+  T_NUMBER 2 (16 13 16 14)
  A_LITERAL
-  T_NUMBER 3 (17 13 17 14)
- T_RPAREN  (17 14 17 14)
+  T_NUMBER 3 (16 16 16 17)
+ T_RPAREN  (16 17 16 17)

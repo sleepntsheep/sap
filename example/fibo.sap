@@ -4,5 +4,5 @@ let fibo := subroutine(n) {
     else fibo(n - 1) + fibo(n - 2)
 }
 
-print fibo(35)
+print(fibo(35))
 

@@ -60,9 +60,6 @@ void print_ast(AST *ast, int indent) {
             for (int i = 0; i < ast->block.exprlist->length; i++)
                 print_ast(ast->block.exprlist->data[i], indent+1);
             break;
-        case A_PRINT:
-            print_ast(ast->print.expr, indent+1);
-            break;
         case A_FUNCTION:
             for (int i = 0; i < ast->function.params->length; i++)
                 print_token(ast->function.params->tokens[i], indent+1);

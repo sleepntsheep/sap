@@ -16,8 +16,9 @@
     X(A_WHILE) \
     X(A_BLOCK) \
     X(A_FUNCTION) \
+    X(A_LIST) \
+    X(A_INDEX) \
     X(A_CALL) \
-    X(A_PRINT) \
 
 #define X(a) a,
 typedef enum { AST_TYPE_LIST } ASTType;
@@ -39,6 +40,7 @@ void astlist_free(ASTList *a);
 
 struct AST {
     ASTType type;
+    Token token;
     union {
         struct {
             AST *left;
@@ -85,6 +87,9 @@ struct AST {
             ASTList *exprlist;
         } block;
         struct {
+            ASTList *exprlist;
+        } list;
+        struct {
             TokenList *params;
             AST *body;
         } function;
@@ -94,8 +99,9 @@ struct AST {
             Token paren;
         } call;
         struct {
-            AST *expr;
-        } print;
+            AST *indexable;
+            AST *index;
+        } index;
     };
 };
 
@@ -104,6 +110,7 @@ const char *asttype_str(ASTType type);
 
 #define ast_if(cond,ift,iff) ast_new((AST){ A_IF, .ifelse = {cond,ift,iff}})
 #define ast_block(exprlist) ast_new((AST){ A_BLOCK, .block = {exprlist}} )
+#define ast_list(exprlist) ast_new((AST){ A_LIST, .list = {exprlist}} )
 #define ast_while(cond,then) ast_new((AST){ A_WHILE, .whileloop = {cond,then}})
 #define ast_binary(l,op,r) ast_new((AST){ A_BINARY, .binary = {l,op,r}})
 #define ast_unary(op,r) ast_new((AST){ A_BINARY, .unary = {op,r}})
@@ -115,7 +122,7 @@ const char *asttype_str(ASTType type);
 #define ast_and(l,r) ast_new((AST){ A_AND, .logic_or = {l,r}})
 #define ast_function(params,body) ast_new((AST){ A_FUNCTION, .function = {params,body}})
 #define ast_call(callable,args,paren) ast_new((AST){ A_CALL, .call = {callable,args,paren}})
-#define ast_print(expr) ast_new((AST){ A_PRINT, .print = {expr}})
+#define ast_index(e,i,token) ast_new((AST){ A_INDEX, token, .index = {e,i}})
 
 #endif /* AST_H */
 

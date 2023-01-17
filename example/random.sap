@@ -1,0 +1,5 @@
+
+let value := random(1, 100)
+
+print("Value is "..value)
+

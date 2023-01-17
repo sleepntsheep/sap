@@ -5,7 +5,7 @@
 #include "sobject.h"
 #include "env.h"
 
-SObject *ast_eval(AST *ast, Env *env);
+SObject ast_eval(AST *ast, Env *env);
 
 #endif /* EVAL_H */
 

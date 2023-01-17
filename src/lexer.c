@@ -125,7 +125,6 @@ static void handle_identifier(Lexer *l) {
         TokenType t;
     } const keywords[] = {
         {"while", T_WHILE},
-        {"print", T_PRINT},
         {"let", T_LET},
         {"false", T_FALSE},
         {"true", T_TRUE},
@@ -169,6 +168,9 @@ static void lexer_lex(Lexer *l) {
                 advance(l);
                 break;
             C1('^', T_POWER)
+            C1(',', T_COMMA)
+            C1('[', T_LBRACKET)
+            C1(']', T_RBRACKET)
             C1('(', T_LPAREN)
             C1(')', T_RPAREN)
             C1('{', T_LBRACE)

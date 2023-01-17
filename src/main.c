@@ -1,22 +1,29 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 #include "token.h"
 #include "sobject.h"
 #include "lexer.h"
 #include "parser.h"
-#include <stdio.h>
 #include "env.h"
 #include "eval.h"
 
 void interpret(const char *code) {
-    Env *env = env_new(NULL);
+    Env env;
+    env_init(&env, NULL);
+    env_define_native(&env);
     TokenList *tokens = lex(code, -1);
     ASTList *expr = parse(tokens);
     for (size_t i = 0; i < expr->length; i++)
-        ast_eval(expr->data[i], env);
+        ast_eval(expr->data[i], &env);
     astlist_free(expr);
     tokenlist_free(tokens);
+    env_cleanup(&env);
 }
 
 int main(int argc, char **argv) {
+    srand(time(0));
+
     if (argc > 1) {
         for (int i = 1; i < argc; i++) {
             FILE *f = fopen(argv[i], "r");
@@ -32,15 +39,15 @@ int main(int argc, char **argv) {
         }
     } else {
         char line[1 << 12];
-        Env *env = env_new(NULL);
+        Env env;
+        env_init(&env, NULL);
+        env_define_native(&env);
 
         while (fgets(line, sizeof line, stdin)) {
             TokenList *tokens = lex(line, -1);
-            //for (size_t i = 0; i < tokens->length; i++)
-                //printf("%s %s\n", tokentype_str(tokens->tokens[i].type), tokens->tokens[i].lexeme);
             ASTList *expr = parse(tokens);
             for (size_t i = 0; i < expr->length; i++)
-                ast_eval(expr->data[i], env);
+                ast_eval(expr->data[i], &env);
             astlist_free(expr);
             tokenlist_free(tokens);
         }

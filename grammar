@@ -5,7 +5,9 @@ expression     -> declaration
                     | if
                     | while
                     | function
-                    | "print" expression;
+                    | list;
+
+list           -> "[" expression* "]"
 
 if             -> "if" expression expression ("else" expression) ? 
 
@@ -39,6 +41,8 @@ unary          -> ( "!" | "-" ) unary
                    | call ;
 
 call           -> primary ( "(" arguments? ")" )*;
+
+index          -> primary ( "[" expression "]" )*;
 
 arguments      -> expression*;
 

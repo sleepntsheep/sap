@@ -70,23 +70,20 @@ static AST *unary(Parser *p);
 static AST *call(Parser *p);
 static AST *primary(Parser *p);
 static AST *block(Parser *p);
+static AST *list(Parser *p);
+static AST *p_index(Parser *p);
 
 static AST *expression(Parser *p) {
-    if (check(p, 1, T_IF)) {
+    if (check1(p, T_IF))
         return if_else(p);
-    }
-    if (match(p, 1, T_PRINT)) {
-        return ast_print(expression(p));
-    }
-    if (check(p, 1, T_WHILE)) {
+    if (check1(p, T_WHILE))
         return while_loop(p);
-    }
-    if (check(p, 1, T_SUBROUTINE)) {
+    if (check1(p, T_SUBROUTINE))
         return function(p);
-    }
-    if (check(p, 1, T_LBRACE)) {
+    if (check1(p, T_LBRACE))
         return block(p);
-    }
+    if (check1(p, T_LBRACKET))
+        return list(p);
     return declaration(p);
 }
 
@@ -111,27 +108,36 @@ static AST *while_loop(Parser *p) {
 static AST *block(Parser *p) {
     consume(p, T_LBRACE);
     ASTList *exprs = astlist_new();
-    while (!end(p) && !check(p, 1, T_RBRACE)) {
+    while (!end(p) && !check1(p, T_RBRACE))
         astlist_push(exprs, expression(p));
-    }
     consume(p, T_RBRACE);
     return ast_block(exprs);
+}
+
+static AST *list(Parser *p) {
+    consume(p, T_LBRACKET);
+    ASTList *exprs = astlist_new();
+    do {
+        astlist_push(exprs, expression(p));
+    } while (match1(p, T_COMMA));
+    consume(p, T_RBRACKET);
+    return ast_list(exprs);
 }
 
 static AST *function(Parser *p) {
     consume(p, T_SUBROUTINE);
     TokenList *params = tokenlist_new();
     consume(p, T_LPAREN);
-    while (!check(p, 1, T_RPAREN)) {
+    do {
         tokenlist_push(params, consume(p, T_IDENTIFIER));
-    }
+    } while (match1(p, T_COMMA));
     consume(p, T_RPAREN);
     AST *body = expression(p);
     return ast_function(params, body);
 }
 
 static AST *declaration(Parser *p) {
-    if (check(p, 1, T_LET)) {
+    if (check1(p, T_LET)) {
         AST *initializer = NULL;
         advance(p);
         Token id = advance(p);
@@ -214,7 +220,7 @@ static AST *factor(Parser *p) {
 
 static AST *exponent(Parser *p) {
     AST *expr = unary(p);
-    if (check(p, 1, T_POWER)) {
+    if (check1(p, T_POWER)) {
         Token op = advance(p);
         AST *right = exponent(p);
         expr = ast_binary(expr, op, right);
@@ -234,14 +240,24 @@ static AST *unary(Parser *p) {
 }
 
 static AST *call(Parser *p) {
-    AST *expr = primary(p);
-    if (match(p, 1, T_LPAREN)) {
+    AST *expr = p_index(p);
+    while (match(p, 1, T_LPAREN)) {
         ASTList *args = astlist_new();
-        while (!end(p) && !check(p, 1, T_RPAREN)) {
+        do {
             astlist_push(args, expression(p));
-        }
+        } while (!end(p) && match1(p, T_COMMA));
         Token rparen = advance(p);
         expr = ast_call(expr, args, rparen);
+    }
+    return expr;
+}
+
+static AST *p_index(Parser *p) {
+    AST *expr = primary(p);
+    while (match(p, 1, T_LBRACKET)) {
+        AST *idx = expression(p);
+        Token tk = consume(p ,T_RBRACKET);
+        return ast_index(expr, idx, tk);
     }
     return expr;
 }
@@ -251,7 +267,7 @@ static AST *primary(Parser *p) {
     if (check(p, 5, T_NUMBER, T_STRING, T_FALSE, T_TRUE, T_NIL)) {
         return ast_literal(advance(p));
     }
-    if (check(p, 1, T_IDENTIFIER)) {
+    if (check1(p, T_IDENTIFIER)) {
         return ast_variable(advance(p));
     }
     if (match(p, 1, T_LPAREN)) {

@@ -17,11 +17,13 @@ dep: POSIX compliant shell and /bin/cc
 
 # TODO
 
+- [ ] FFI
 - [ ] standard library
 - [ ] for loop
 - [ ] break
 - [ ] continue
 - [ ] return  (currently last expression in block expression is used for return value)
+- [x] native functions
 - [x] function
 - [ ] string escaping, raw string
 - [x] if-else

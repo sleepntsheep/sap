@@ -10,6 +10,8 @@
     X(T_RPAREN) \
     X(T_LBRACE) \
     X(T_RBRACE) \
+    X(T_LBRACKET) \
+    X(T_RBRACKET) \
     X(T_IDENTIFIER) \
     X(T_NUMBER) \
     X(T_STRING) \
@@ -37,7 +39,7 @@
     X(T_ELSE) \
     X(T_WHILE) \
     X(T_SUBROUTINE) \
-    X(T_PRINT) \
+    X(T_COMMA) \
     X(T_CONCAT) \
     X(T_EOF) \
 

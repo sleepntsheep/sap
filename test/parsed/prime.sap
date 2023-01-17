@@ -52,36 +52,46 @@ A_DECLARATION
  T_IDENTIFIER counter (13 2 13 9)
  A_LITERAL
   T_NUMBER 1 (13 13 13 14)
+A_DECLARATION
+ T_IDENTIFIER N (15 2 15 3)
+ A_LITERAL
+  T_NUMBER 1000000 (15 7 15 14)
 A_WHILE
  A_BINARY
   A_VARIABLE
-   T_IDENTIFIER counter (15 2 15 9)
-  A_LITERAL
-   T_NUMBER 40 (15 13 15 15)
+   T_IDENTIFIER counter (17 2 17 9)
+  A_VARIABLE
+   T_IDENTIFIER N (17 13 17 14)
  A_BLOCK
   A_IF
    A_CALL
     A_VARIABLE
-     T_IDENTIFIER is_prime (16 6 16 14)
+     T_IDENTIFIER is_prime (18 6 18 14)
     A_VARIABLE
-     T_IDENTIFIER counter (16 15 16 22)
-    T_RPAREN  (16 22 16 22)
-   A_PRINT
+     T_IDENTIFIER counter (18 15 18 22)
+    T_RPAREN  (18 22 18 22)
+   A_CALL
+    A_VARIABLE
+     T_IDENTIFIER print (18 24 18 29)
     A_BINARY
      A_VARIABLE
-      T_IDENTIFIER counter (16 25 16 32)
+      T_IDENTIFIER counter (18 30 18 37)
      A_LITERAL
-      T_STRING  is prime (16 35 16 44)
-   A_PRINT
+      T_STRING  is prime (18 40 18 49)
+    T_RPAREN  (18 50 18 50)
+   A_CALL
+    A_VARIABLE
+     T_IDENTIFIER print (19 6 19 11)
     A_BINARY
      A_VARIABLE
-      T_IDENTIFIER counter (17 7 17 14)
+      T_IDENTIFIER counter (19 12 19 19)
      A_LITERAL
-      T_STRING  is not prime (17 17 17 30)
+      T_STRING  is not prime (19 22 19 35)
+    T_RPAREN  (19 36 19 36)
   A_ASSIGNMENT
-   T_IDENTIFIER counter (19 5 19 12)
+   T_IDENTIFIER counter (21 5 21 12)
    A_BINARY
     A_VARIABLE
-     T_IDENTIFIER counter (19 16 19 23)
+     T_IDENTIFIER counter (21 16 21 23)
     A_LITERAL
-     T_NUMBER 1 (19 26 19 27)
+     T_NUMBER 1 (21 26 21 27)
